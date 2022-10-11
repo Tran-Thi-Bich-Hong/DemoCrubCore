@@ -6,8 +6,11 @@
     <title>@ViewData["Title"] - DemoCrubCore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -23,8 +26,23 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Sản Phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Store">Privacy</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Cart">
+                                <div class="header__cart-icon-wrap">
+                                    <button type="button" class="btn btn-success waves-effect width-md waves-light">
+
+                                        <span class="header__notice">@ViewData["CountProduct"]</span>
+                                        <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
+                                    </button>
+                                </div>
+                            </a>
+
+
+                        </li>
+
                     </ul>
                 </div>
             </div>

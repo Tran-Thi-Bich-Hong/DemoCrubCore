@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DemoCrubCore.Models.CartItems>
+@{
+    ViewData["Title"] = "OrderProduct";
+}
+
+<h1>OrderProduct</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ảnh
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                 Giá
+            </th>
+            <th>
+               Số lượng
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <img src="@("~/image/"+ item.ImageProduct)" asp-append-version="true" alt="" width="50px" height="50px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

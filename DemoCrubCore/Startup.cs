@@ -27,7 +27,7 @@ namespace DemoCrubCore
         {
             services.AddControllersWithViews();
             services.AddDbContext<saledbContext>(u=>u.UseSqlServer("Data Source=TRANTHIBICHHONG\\SQLEXPRESS;Initial Catalog=saledb;Integrated Security=True; trusted_connection=yes "));
-        
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,14 +47,14 @@ namespace DemoCrubCore
             app.UseStaticFiles();
             
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Products}/{action=Index}/{id?}");
+                    pattern: "{controller=Products}/{action=Store}/{id?}");
             });
         }
     }

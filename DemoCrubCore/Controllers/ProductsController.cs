@@ -37,6 +37,19 @@ namespace DemoCrubCore.Controllers
 
             return View(await saledbContext.ToListAsync());
         }
+        public async Task<IActionResult> Store(string kw)
+        {
+            var saledbContext = _context.Products.Include(p => p.Category);
+
+            if (!String.IsNullOrEmpty(kw))
+            {
+                var search = saledbContext.Select(s => s);
+                search = search.Where(s => s.Name == kw);
+                return View(search);
+            }
+
+            return View(await saledbContext.ToListAsync());
+        }
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -231,4 +244,5 @@ namespace DemoCrubCore.Controllers
             return _context.Products.Any(e => e.Id == id);
         }
     }
+   
 }
